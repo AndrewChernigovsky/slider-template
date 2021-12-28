@@ -21,102 +21,44 @@ h1 {
     margin-bottom: 40px;
 }
 
-h3, h4 {
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    margin: 20px 0 30px 0;
-}
-
-input, select, textarea {
-    background: none;
-    border: 1px solid black;
-    padding: 10px 20px;
-    font-size: .9rem;
-}
-
-select {
-    box-sizing: border-box;
-    padding: 9px 20px 10px 20px;
-}
-
-textarea {
-    display: block;
-    margin-bottom: 20px;
-}
-
-input[type="color"] {
-        padding: 8px 8px;
-    position: relative;
-    bottom: -2px;
-}
-
-input[type="date"] {
-     padding: 8px 8px;
-}
-
-input[type="range"] {
-     position: relative;
-     bottom: -14px;
-}
-
-input[type="date"]:active, input[type="date"]:focus, input[type="color"]:active, input[type="color"]:focus, input[type="password"]:active, input[type="password"]:focus, input[type="email"]:active, input[type="email"]:focus, select:active, select:focus   {
-    border-radius: 0 !important;
-    outline: none;
-}
-
-button {
-    background: none;
-    border: 1px solid black;
-    padding: 10px 20px;
-    font-size: .9rem;
-}
-
-button:hover {
-    background: orangered;
-}
-
-button:active {
-    background: #000;
-    color: #fff;
-}
-
-.out-block {
-    font-size: 1rem;
-    font-family: monospace;
-}
-
-.section {
-    margin: 10px 0 10px 0;
-    padding: 10px 0 30px 0;
-    border-bottom: 1px solid #c2c2c2;
-}
-
-.section div {
-    margin-bottom: 20px;
-}
-
-.red {
-    color: IndianRed;
-}
-
 .slider {
     border: 2px solid black;
     max-width: 80%;
     margin: 20px auto;
     overflow: hidden;
     position: relative;
+    height: 100%;
 }
 
-.slider-line {
-    width: 1024px;
+.slider__content-wrapper {
+    width: 100%;
     display: flex;
     background: orange;
     position: relative;
-    left: 0;
+    height: 500px;
     transition: all ease 1s;
 }
 
-.slider-dots {
+.slider__item {
+    position: absolute;
+    display: none;
+    animation-name: fade;
+    animation-duration: .5s;
+}
+
+.slider__item--active {
+    width: 100%;
+    display: block;
+    transition: all ease .5s;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.slider__dots {
     position: absolute;
     top: 80%;
     width: 100%;
@@ -124,23 +66,32 @@ button:active {
     justify-content: center;
 }
 
-.slider-dots__wrapper {
+.slider__dots-wrapper {
     width: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.slider-dots__item {
+.slider__dots-item {
     width: 10px;
     height: 10px;
     background-color: white;
     border-radius: 50%;
 }
 
-.slider-dots__item--active {
+.slider__dots-item--active {
     width: 20px;
     height: 20px;
     background-color: blue;
     border-radius: 50%;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4;
+    }
+    to {
+        opacity: 1;
+    }
 }
