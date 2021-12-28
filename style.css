@@ -23,7 +23,7 @@ h1 {
 
 .slider {
     border: 2px solid black;
-    max-width: 80%;
+    max-width: 100%;
     margin: 20px auto;
     overflow: hidden;
     position: relative;
@@ -35,15 +35,15 @@ h1 {
     display: flex;
     background: orange;
     position: relative;
-    height: 500px;
     transition: all ease 1s;
 }
 
 .slider__item {
-    position: absolute;
     display: none;
     animation-name: fade;
     animation-duration: .5s;
+    width: 100%;
+    height: auto;
 }
 
 .slider__item--active {
@@ -67,31 +67,86 @@ img {
 }
 
 .slider__dots-wrapper {
-    width: 20%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+@media screen (min-width: 768px) {
+    .slider__dots-wrapper {
+        width: 50%;
+    }
+}
+
 .slider__dots-item {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+@media screen (min-width: 768px) {
+    .slider__dots-item {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.slider__dots-item--active {
     width: 10px;
     height: 10px;
     background-color: white;
     border-radius: 50%;
 }
 
-.slider__dots-item--active {
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    border-radius: 50%;
+@media screen (min-width: 768px) {
+    .slider__dots-item--active {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 @keyframes fade {
     from {
         opacity: .4;
     }
+
     to {
         opacity: 1;
+    }
+}
+
+.slider__buttons {
+    width: 100%;
+    top: 45%;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.slider__buttons-wrapper {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider__button-prev, .slider__button-next {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    opacity: 0.2;
+    border-radius: 50%;
+}
+
+@media screen (min-width: 768px) {
+    .slider__button-prev, .slider__button-next {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        opacity: 0.2;
+        border-radius: 50%;
     }
 }
