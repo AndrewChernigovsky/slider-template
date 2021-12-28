@@ -46,10 +46,6 @@ function showSlides(n) {
 }
 showSlides(defaultSlide);
 
-setInterval(() => {
-    showSlides(defaultSlide += 1);
-}, 2000);
-
 for (i = 0; i < sliderDots.length; i++) {
     sliderDots[i].addEventListener("click", (function(i) {
         return function () {
@@ -62,7 +58,9 @@ prevBtn.addEventListener("click", previousSlide);
 nextBtn.addEventListener("click", nextSlide);
 
 
-
+setInterval(() => {
+    showSlides(defaultSlide += 1);
+}, 7000);
 
 
 
@@ -82,3 +80,10 @@ window.addEventListener('resize', init);
 function rollSlider() {
     sliderContentWrapper.style.transform = 'translate(-' + count * width + 'px)';
 }
+
+sliderSimple.addEventListener('keypress', function(event) {
+    if (event.keyCode === '37')  {
+        previousSlide();
+        }
+    }
+);

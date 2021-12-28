@@ -73,7 +73,7 @@ img {
     align-items: center;
 }
 
-@media screen (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .slider__dots-wrapper {
         width: 50%;
     }
@@ -86,7 +86,7 @@ img {
     border-radius: 50%;
 }
 
-@media screen (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .slider__dots-item {
         width: 10px;
         height: 10px;
@@ -100,7 +100,7 @@ img {
     border-radius: 50%;
 }
 
-@media screen (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .slider__dots-item--active {
         width: 20px;
         height: 20px;
@@ -141,7 +141,7 @@ img {
     border-radius: 50%;
 }
 
-@media screen (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .slider__button-prev, .slider__button-next {
         width: 50px;
         height: 50px;
