@@ -44,7 +44,7 @@ function showSlides(n) {
     sliderItems[defaultSlide - 1].classList.add('slider__item--active');
     sliderDots[defaultSlide - 1].className += " slider__dots-item--active";
 }
-showSlides(defaultSlide);
+
 
 for (i = 0; i < sliderDots.length; i++) {
     sliderDots[i].addEventListener("click", (function(i) {
@@ -56,13 +56,6 @@ for (i = 0; i < sliderDots.length; i++) {
 
 prevBtn.addEventListener("click", previousSlide);
 nextBtn.addEventListener("click", nextSlide);
-
-
-setInterval(() => {
-    showSlides(defaultSlide += 1);
-}, 7000);
-
-
 
 function init() {
     width = sliderSimple.offsetWidth;
@@ -79,11 +72,33 @@ window.addEventListener('resize', init);
 
 function rollSlider() {
     sliderContentWrapper.style.transform = 'translate(-' + count * width + 'px)';
+};
+
+let setIntervals;
+
+function changeSlide() {
+    if (!setIntervals) {
+        setIntervals = setInterval(nextSlide, 1000);
+    }
 }
 
-sliderSimple.addEventListener('keypress', function(event) {
-    if (event.keyCode === '37')  {
+function changeSlideStop() {
+    clearInterval(setIntervals);
+    setIntervals = null;
+}
+
+changeSlide();
+
+function KeyArrows(event) {
+    if (event.keyCode === 37)  {
         previousSlide();
-        }
+        changeSlideStop()
+    } else if (event.keyCode === 39) {
+        nextSlide();
+        changeSlideStop()
     }
-);
+};
+
+sliderSimple.onkeydown = KeyArrows;
+
+showSlides(defaultSlide);
