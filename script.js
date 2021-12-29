@@ -50,12 +50,22 @@ for (i = 0; i < sliderDots.length; i++) {
     sliderDots[i].addEventListener("click", (function(i) {
         return function () {
             currentSlide(i+1);
+            changeSlideStop();
         };
     }(i)));
 }
 
-prevBtn.addEventListener("click", previousSlide);
-nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", function() {
+    previousSlide();
+    changeSlideStop();
+});
+
+nextBtn.addEventListener("click", function() {
+    nextSlide();
+    changeSlideStop();
+});
+
+
 
 function init() {
     width = sliderSimple.offsetWidth;
@@ -92,10 +102,10 @@ changeSlide();
 function KeyArrows(event) {
     if (event.keyCode === 37)  {
         previousSlide();
-        changeSlideStop()
+        changeSlideStop();
     } else if (event.keyCode === 39) {
         nextSlide();
-        changeSlideStop()
+        changeSlideStop();
     }
 };
 
