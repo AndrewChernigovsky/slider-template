@@ -1,8 +1,8 @@
 const sliderSimple = document.getElementById("sliderSimple");
 const sliderContentWrapper = document.querySelector(".slider__content-wrapper");
 const sliderItems = document.querySelectorAll(".slider__item");
-const sliderDots = document.querySelectorAll(".slider__dots-item");
 
+const sliderDots = document.querySelectorAll(".slider__dots-item");
 const prevBtn = document.querySelector(".slider__button-prev");
 const nextBtn = document.querySelector(".slider__button-next");
 
@@ -96,8 +96,6 @@ function changeSlideStop() {
     clearInterval(setIntervals);
     setIntervals = null;
 }
-
-changeSlide();
 
 function KeyArrows(event) {
     if (event.keyCode === 37)  {
